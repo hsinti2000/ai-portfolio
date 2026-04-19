@@ -1,0 +1,78 @@
+# AI Food Image Classification
+
+This project is an AI image classification system for Taiwanese school lunch dishes and fruits.  
+It uses **PyTorch** and **ConvNeXt-Tiny** to classify food images into **50 categories**.
+
+The project includes:
+- model training
+- image inference
+- training result visualization
+- sample test images for demonstration
+
+---
+
+## Project Overview
+
+The goal of this project is to build a deep learning model that can recognize different food categories from meal images.
+
+This project focuses on:
+- multi-class food image classification
+- transfer learning with ConvNeXt-Tiny
+- model fine-tuning
+- inference on single images
+- performance visualization with loss and accuracy curves
+
+---
+
+## Model
+
+- **Framework:** PyTorch
+- **Backbone:** ConvNeXt-Tiny
+- **Task:** Multi-class image classification
+- **Number of classes:** 50
+- **Input preprocessing:**
+  - Resize to 256
+  - CenterCrop to 224
+  - Normalize with ImageNet mean and std
+
+---
+
+## Classes
+
+The dataset contains the following 50 classes:
+
+`三杯雞, 什錦炒麵, 咖哩雞, 塔香海茸, 大陸妹, 客家小炒, 小番茄, 有機小松菜, 有機青松菜, 木瓜, 柳丁, 棗子, 橘子, 沙茶肉片, 油菜, 洋蔥炒蛋, 滷蛋, 滷雞腿, 玉米炒蛋, 瓜仔肉, 番茄炒蛋, 白米飯, 白菜滷, 福山萵苣, 空心菜, 糖醋雞丁, 紅蘿蔔炒蛋, 義大利麵, 芥藍菜, 菠菜, 葡萄, 蒜泥白肉, 蒸蛋, 蓮霧, 螞蟻上樹, 西瓜, 豆芽菜, 關東煮, 青江菜, 香蕉, 香酥魚排, 馬鈴薯燉肉, 高麗菜, 鳳梨, 鵝白菜, 鹽酥雞, 麥克雞塊, 麻婆豆腐, 麻油雞, 黑胡椒豬柳`
+
+---
+
+## Results
+
+The model achieved strong and stable validation performance during training.
+
+### Best Validation Performance
+- **Validation Accuracy:** 85.33%
+- **Validation Loss:** 0.4456
+- **Top-5 Accuracy:** 98.80%
+
+### Training Strategy
+The training process was divided into two stages:
+1. Train the classifier head with most backbone layers frozen
+2. Unfreeze the last two feature blocks for fine-tuning
+
+This staged fine-tuning strategy helped improve validation accuracy from around **61.78%** in the first epoch to over **85%** at convergence.
+
+---
+
+## Project Structure
+
+```bash
+ai-food-classification/
+├─ README.md
+├─ train.py
+├─ predict.py
+├─ requirements.txt
+├─ .gitignore
+├─ loss_curve.png
+├─ accuracy_curve.png
+├─ test.jpg
+└─ test_samples/
