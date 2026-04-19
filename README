@@ -66,13 +66,18 @@ This staged fine-tuning strategy helped improve validation accuracy from around 
 ## Project Structure
 
 ```bash
-ai-food-classification/
+ai-portfolio/
 ├─ README.md
 ├─ train.py
 ├─ predict.py
+├─ aboutme.md
 ├─ requirements.txt
 ├─ .gitignore
 ├─ loss_curve.png
 ├─ accuracy_curve.png
-├─ test.jpg
 └─ test_samples/
+
+## Model Weights
+
+Download the trained model weights here: [best_model.pth]
+https://drive.google.com/file/d/1EEvCs_9h7GlmPHeJUtpzOKxs0hyEDqJq/view?usp=drive_link
